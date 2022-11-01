@@ -1,0 +1,23 @@
+{
+  "name": "pair-project-otanisan",
+  "version": "1.0.0",
+  "description": "sss",
+  "main": "app.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/riiiiion/pair-project-otanisan.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/riiiiion/pair-project-otanisan/issues"
+  },
+  "homepage": "https://github.com/riiiiion/pair-project-otanisan#readme",
+  "devDependencies": {
+    "eslint": "^8.26.0",
+    "eslint-config-prettier": "^8.5.0"
+  }
+}
