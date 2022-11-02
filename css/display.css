@@ -19,3 +19,18 @@ body {
   /* background: #F0F2F5; */
   background: #eff2f5;
 }
+
+.newsList {
+  display: flex;
+  flex-flow: column;
+  margin: auto;
+}
+.news_block {
+  display: flex;
+  flex-flow: row;
+}
+
+.news_image {
+  width: 200px;
+  height: 100px;
+}
