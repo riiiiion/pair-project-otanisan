@@ -1,5 +1,3 @@
-//test
-
 // async function findNames() {
 //   const result = await axios
 //     .get(
@@ -25,7 +23,7 @@ async function getNews(searchWord) {
       //   `https://newsapi.org/v2/top-headlines?country=jp&q=大谷翔平&pageSize=100&category=sports&apiKey=6b3b137d8d4148e788bfca5509e7069f`
       //   `https://newsapi.org/v2/everything?q=${searchWord}&sortBy=popularity&apiKey=6b3b137d8d4148e788bfca5509e7069f
       //   `
-      `./news.json`
+      `../news.json`
     )
     .then((json) => json.data.articles);
   // .then((json) => console.log(json));
@@ -39,5 +37,8 @@ async function getNews(searchWord) {
     body.appendChild(newsTag);
   }
 }
+
+const displayTitle = document.querySelector(".displayTitle");
+displayTitle.innerHTML = "大谷翔平に関するニュース一覧です";
 
 getNews("大谷翔平");
