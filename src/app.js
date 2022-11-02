@@ -21,8 +21,8 @@ async function getNews(searchWord) {
     const newsLink = document.createElement("a");
 
     newsLink.href = elem.url;
-    newsTitle.innerHTML = elem.title;
-    contents.innerHTML = elem.description;
+    newsTitle.innerHTML = wordCut(elem.title, 35);
+    contents.innerHTML = wordCut(elem.description, 80);
     newsImage.src = elem.urlToImage;
     newsLink.classList.add("news_link");
     newsBlock.classList.add("news_block");
@@ -39,7 +39,13 @@ async function getNews(searchWord) {
   }
 }
 
+function wordCut(word, limit) {
+  if (word.length <= limit) {
+    return word;
+  }
+  return word.substring(0, limit) + "...";
+}
 const displayTitle = document.querySelector(".display_title");
 displayTitle.innerHTML = "大谷翔平に関するニュース一覧です";
-
+console.log(window.keyOfSearch);
 getNews("大谷翔平");

@@ -30,8 +30,9 @@ body {
 }
 
 .news_image {
-  width: 200px;
-  height: 100px;
+  width: 100px;
+  height: 50px;
+  object-fit: cover;
 }
 
 .news_link {
