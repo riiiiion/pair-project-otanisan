@@ -1,22 +1,26 @@
+'use strict';
+
+
 
 window.keyOfSearch = '';
 
 function no() {
     console.log("no");
     window.keyOfSearch = '';
-    window.location.href = './display.html';
+    location.href = './display.html';
 }
 
 function yes() {
+    console.log("yes");
     window.keyOfSearch = '';
-    window.location.href = './search.html';
+    location.href = './search.html';
 }
 
-function searchWithKey() {
+function search() {
     const inputEl = document.getElementById('search_word');
     window.keyOfSearch = inputEl.value;
     console.log(inputEl.value);
-    //locaction.href = 'display.html';
+    location.href = 'display.html';
 }
 
 /* EOF */
