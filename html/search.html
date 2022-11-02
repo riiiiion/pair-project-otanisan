@@ -4,14 +4,15 @@
     <meta charset="UTF-8" />
     <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <script src="../src/search.js"></script>
     <title>Search News</title>
   </head>
   <body>
     <div id="news"></div>
     <p>10秒以内に検索ワードを</p>
     <p>入力してください</p>
-    <input type="text" id="word" name="word">
-    <input value="検索" type="button" onclick="location.href='./display.html';">
+    <input type="text" id="search_word" name="search_word">
+    <input value="検索" type="button" onclick="search();">
     <br><br>
     <p>※10秒経過後自動的に大谷翔平のニュースを表示します</p>
     <!---
