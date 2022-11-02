@@ -16,11 +16,10 @@ header {
 
 body {
   padding-top: 60px;
-  /* background: #F0F2F5; */
   background: #eff2f5;
 }
 
-.newsList {
+.news_list {
   display: flex;
   flex-flow: column;
   margin: auto;
@@ -33,4 +32,8 @@ body {
 .news_image {
   width: 200px;
   height: 100px;
+}
+
+.news_link {
+  margin: 10px 10px 10px 10px;
 }
