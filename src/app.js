@@ -1,22 +1,3 @@
-// async function findNames() {
-//   const result = await axios
-//     .get(
-//       //   `https://newsapi.org/v2/top-headlines?country=jp&q=大谷&pageSize=100&category=sports&apiKey=6b3b137d8d4148e788bfca5509e7069f`
-//       `https://newsapi.org/v2/everything?q=大谷翔平&sortBy=popularity&apiKey=6b3b137d8d4148e788bfca5509e7069f
-//       `
-//     )
-//     .then((json) => json.data.articles);
-//   // `https://newsapi.org/v2/top-headlines?country=jp&q='大谷'&apiKey=6b3b137d8d4148e788bfca5509e7069f`
-//   // https://newsapi.org/v2/everything?q=Ohtani&from=2022-11-01&sortBy=popularity&apiKey=6b3b137d8d4148e788bfca5509e7069f
-//   console.log(result);
-//   const body = document.getElementById("news");
-//   for (const elem of result) {
-//     const newsTag = document.createElement("div");
-//     newsTag.innerHTML = elem.title;
-//     body.appendChild(newsTag);
-//   }
-// }
-
 async function getNews(searchWord) {
   const result = await axios
     .get(
@@ -30,7 +11,7 @@ async function getNews(searchWord) {
   // `https://newsapi.org/v2/top-headlines?country=jp&q='大谷'&apiKey=6b3b137d8d4148e788bfca5509e7069f`
   // https://newsapi.org/v2/everything?q=Ohtani&from=2022-11-01&sortBy=popularity&apiKey=6b3b137d8d4148e788bfca5509e7069f
   //   console.log(result);
-  const newsList = document.getElementById("newsList");
+  const newsList = document.getElementById("news_list");
   for (const elem of result) {
     const newsBlock = document.createElement("div");
     const newsImage = document.createElement("img");
@@ -40,24 +21,25 @@ async function getNews(searchWord) {
     const newsLink = document.createElement("a");
 
     newsLink.href = elem.url;
-    newsLink.classList.add("news_link");
-    newsImage.classList.add("news_image");
-    newsImage.src = elem.urlToImage;
     newsTitle.innerHTML = elem.title;
     contents.innerHTML = elem.description;
+    newsImage.src = elem.urlToImage;
+    newsLink.classList.add("news_link");
+    newsBlock.classList.add("news_block");
+    newsLink.classList.add("news_link");
+    newsImage.classList.add("news_image");
 
     titleAndContents.appendChild(newsTitle);
     titleAndContents.appendChild(contents);
     newsBlock.appendChild(newsImage);
     newsBlock.appendChild(titleAndContents);
-    newsBlock.classList.add("news_block");
     newsLink.appendChild(newsBlock);
 
     newsList.appendChild(newsLink);
   }
 }
 
-const displayTitle = document.querySelector(".displayTitle");
+const displayTitle = document.querySelector(".display_title");
 displayTitle.innerHTML = "大谷翔平に関するニュース一覧です";
 
 getNews("大谷翔平");
