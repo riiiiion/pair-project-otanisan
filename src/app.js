@@ -55,7 +55,7 @@ function createElem(tagName, className) {
   return result;
 }
 
-const searchWord = sessionStorage.getItem("search_word");
+const searchWord = sessionStorage.getItem("searchWord");
 const favoriteButton = document.querySelector("#favorite");
 
 // Todo お気に入り機能
