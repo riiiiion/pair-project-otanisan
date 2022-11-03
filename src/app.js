@@ -1,46 +1,52 @@
-// async function getStaticProps() {
-//   const res = await axios.get("../stb.json");
-//   console.log(res);
-// }
-// getStaticProps();
-
 async function getNews(searchWord) {
   searchWord = searchWord || "大谷翔平";
   const result = await axios
     .get(
       //   `https://newsapi.org/v2/top-headlines?country=jp&q=大谷翔平&pageSize=100&category=sports&apiKey=6b3b137d8d4148e788bfca5509e7069f`
-      //   `https://newsapi.org/v2/everything?q=${searchWord}&sortBy=popularity&apiKey=6b3b137d8d4148e788bfca5509e7069f
-      //     `
-      `../news.json`
-      // "https://product.starbucks.co.jp/api/category-product-list/beverage/index.json"
+      `https://newsapi.org/v2/everything?q=${searchWord}&sortBy=publishedAt&apiKey=6b3b137d8d4148e788bfca5509e7069f
+          `
+      // `../news.json`
     )
     .then((json) => json.data.articles);
-  // .then((json) => console.log(json));
-  // console.log(result);
-  // `https://newsapi.org/v2/top-headlines?country=jp&q='大谷'&apiKey=6b3b137d8d4148e788bfca5509e7069f`
-  // https://newsapi.org/v2/everything?q=Ohtani&from=2022-11-01&sortBy=popularity&apiKey=6b3b137d8d4148e788bfca5509e7069f
-  //   console.log(result);
+
   const newsList = document.getElementById("news_list");
   for (const elem of result) {
-    const newsBlock = createElem("div", "news_block");
+    let newsBlock = createElem("div", "news_block");
     const newsImage = createElem("img", "news_image");
-    const titleAndContents = createElem("div", "title_contents");
+    let titleAndContents = createElem("div", "title_contents");
     const newsTitle = createElem("a", "news_title");
     const contents = createElem("div", "contents");
 
     newsTitle.href = elem.url;
-    newsTitle.innerHTML = wordCut(elem.title, 35);
+    newsTitle.target = "_blank";
+    newsTitle.rel = "noopener noreferrer";
+    newsTitle.innerHTML = wordCut(elem.title, 25);
     contents.textContent = wordCut(elem.description, 100);
     newsImage.src = elem.urlToImage;
 
-    titleAndContents.appendChild(newsTitle);
-    titleAndContents.appendChild(contents);
-    newsBlock.appendChild(newsImage);
-    newsBlock.appendChild(titleAndContents);
+    // titleAndContents.appendChild(newsTitle);
+    // titleAndContents.appendChild(contents);
+    titleAndContents = elementAppendChild(
+      titleAndContents,
+      newsTitle,
+      contents
+    );
+
+    // newsBlock.appendChild(newsImage);
+    // newsBlock.appendChild(titleAndContents);
+
+    newsBlock = elementAppendChild(newsBlock, newsImage, titleAndContents);
 
     newsList.appendChild(newsBlock);
   }
   return newsList;
+}
+
+function elementAppendChild(base, ...elemLists) {
+  for (const elem of elemLists) {
+    base.appendChild(elem);
+  }
+  return base;
 }
 
 function createElem(tagName, className) {
@@ -50,7 +56,6 @@ function createElem(tagName, className) {
 }
 
 const searchWord = sessionStorage.getItem("search_word");
-
 const favoriteButton = document.querySelector("#favorite");
 
 // Todo お気に入り機能
@@ -68,7 +73,8 @@ function wordCut(word, limit) {
   }
   return word.substring(0, limit).replace(/\r?\n/g, "") + "...";
 }
+
 const displayTitle = document.querySelector(".display_title");
 displayTitle.innerHTML = `${searchWord}に関するニュース一覧です`;
-// console.log(sessionStorage.getItem("search_word"));
+
 getNews(searchWord);
