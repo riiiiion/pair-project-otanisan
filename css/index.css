@@ -1,5 +1,38 @@
+body {
+    vertical-align: middle;
+}
+
 #news {
+    border-color: black;
+    border-width: 5px;
+    font-size: xx-large;
+    background-color:aqua;
+    /*display: table-cell;*/
+    vertical-align: middle;
+    position: relative;
     font-style: italic;
     text-align: center;
-    position: relative;
+    /*width: 90%;*/
+    /*height: 90%;*/
+    border-radius: 20px;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+#yes {
+    font-size:x-large;
+    /*background-color:aquamarine;*/
+    border-radius: 15px;
+    height: 60px;
+    width: 100px;
+}
+
+#no {
+    font-size:large;
+    border-radius: 10px;
+}
+
+#message {
+    font-size:medium;
+
 }
