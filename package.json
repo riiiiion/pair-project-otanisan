@@ -17,7 +17,10 @@
   },
   "homepage": "https://github.com/riiiiion/pair-project-otanisan#readme",
   "devDependencies": {
+    "chai": "^4.3.6",
+    "chai-dom": "^1.11.0",
     "eslint": "^8.26.0",
-    "eslint-config-prettier": "^8.5.0"
+    "eslint-config-prettier": "^8.5.0",
+    "mocha": "^10.1.0"
   }
 }
