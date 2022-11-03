@@ -11,8 +11,8 @@ function search() {
 }
 
 function next() {
-    const favoliteWord = localStorage.getItem('favoliteWord');
-    sessionStorage.setItem('searchWord', favoliteWord);
+    const favoriteWord = localStorage.getItem('favoriteWord');
+    sessionStorage.setItem('searchWord', favoriteWord);
     location.href = './display.html';
 }
 
@@ -24,9 +24,9 @@ window.addEventListener('click', () => {
 });
 
 window.addEventListener('load', () => {
-    const favoliteWord = localStorage.getItem('favoliteWord')
+    const favoriteWord = localStorage.getItem('favoriteWord')
     const pEl = document.getElementById('message');
-    const message ='※10秒経過後自動的に' + favoliteWord + 'のニュースを表示します。';
+    const message ='※10秒経過後自動的に' + favoriteWord + 'のニュースを表示します。';
     pEl.innerText = message;
 
     id = window.setInterval(next, 10000);
