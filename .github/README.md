@@ -1,8 +1,10 @@
 # name
 
-News Search
+News Searcher
 
-image or gif
+![image1](../images/image1.png)
+![image1](../images/image2.png)
+![image1](../images/image3.png)
 
 ## 概要
 
@@ -25,11 +27,12 @@ image or gif
 
 ## 注意事項
 
-news API の無料版なので検索回数は 1 日 100 回まで
+- news API の無料版なので検索回数は 1 日 100 回まで
+- 無料版は CORS 未対応のため GitHub-pages などへのデプロイ不可。
 
 ## 文責
 
-- 作成者：Tsukiyama,rion
+- 作成者：Tsukiyama,Rion
 - 所属：ロサンゼルス・エンゼルズ
 
 ## Licence

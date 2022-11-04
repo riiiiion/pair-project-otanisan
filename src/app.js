@@ -2,7 +2,6 @@ async function getNews(searchWord) {
   searchWord = searchWord || "大谷翔平";
   const result = await axios
     .get(
-      //   `https://newsapi.org/v2/top-headlines?country=jp&q=大谷翔平&pageSize=100&category=sports&apiKey=6b3b137d8d4148e788bfca5509e7069f`
       `https://newsapi.org/v2/everything?q=${searchWord}&sortBy=publishedAt&apiKey=6b3b137d8d4148e788bfca5509e7069f
           `
       // `../news.json`
@@ -24,16 +23,11 @@ async function getNews(searchWord) {
     contents.textContent = wordCut(elem.description, 100);
     newsImage.src = elem.urlToImage;
 
-    // titleAndContents.appendChild(newsTitle);
-    // titleAndContents.appendChild(contents);
     titleAndContents = elementAppendChild(
       titleAndContents,
       newsTitle,
       contents
     );
-
-    // newsBlock.appendChild(newsImage);
-    // newsBlock.appendChild(titleAndContents);
 
     newsBlock = elementAppendChild(newsBlock, newsImage, titleAndContents);
 
